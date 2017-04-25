@@ -1,6 +1,6 @@
-#**Behavioral Cloning** 
+# **Behavioral Cloning** 
 
-##Writeup
+## Writeup
 ---
 
 **Behavioral Cloning Project**
@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 ---
 ###Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * train.py containing the script to create and train the model
@@ -37,51 +37,51 @@ My project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup.md summarizing the results
 
-####2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5
 ```
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 I started off with a model similar to model in previous assignment.Then started adding more convolutional layer. When the results weren't satisfactory I started venturing into experiments done already. Came across NVIDIA's published model. My model resembles a [NVIDIA E2E DL model architecture](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf). Solution takes care of optimizing the solution by pre-processing training data, configuring the params of network which yield better result for our images and adding layers. 
 
 Model is defined in line 114 (train.py)
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains dropout layers after every conlutional layer to reduce overfitting.
 
 Validation of data was done to ensure that the model wasn't overfitting.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually (train.py line 102).
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Training data was cruicial part of this. Not only centre lane driving but recovering was also a concern. I collected data by driving the car centre of the lane most of the time and then on certain occassions deviated from the center to capture recovery too.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 Solution had three parts:
-#####1. Collecting training data
+##### 1. Collecting training data
 Collecting training data was a crucial part of the solution. If someone kept on driving into the center of the lane it won't help the model in understanding recovery well.
 
 While collecting data I took care of creating dataset for recovery too.
-#####2. Model
+##### 2. Model
 After starting from a very basic connected network I moved on to a network similar to last assignment. Then kept on experimenting with changing and adding new layers. Did some brwsing around different models for similar problem. Then picked up the NVIDIA E2E DL model for Self Driving Cars. With this model started experitmenting with params and adding layers.
 
-#####3. Training
+##### 3. Training
 While data was collected and model was ready next challenge was how do we avoid overfitting and underfitting. In order to achieve these Images were preprocessed for flip and center alignment.
 
 Model was added with Dropout layer to avoid overfitting. With 0.5 the results yielded was satisfoctory.
@@ -90,7 +90,7 @@ At the end to measure the model performance I split the training data into two p
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 Final architecture resembles NVIDIAs E2E DL for Self Driving cars. This model helped me in obtaining the best result. This model had:
 
@@ -123,7 +123,7 @@ Final out put is steering angle.
 
 Model is in (train.py 114 - 146).
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I first recorded on track one using center lane driving. Here is an example image of center lane driving:
 
