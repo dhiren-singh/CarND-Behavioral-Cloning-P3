@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
-* train.py containing the script to create and train the model
+* model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * writeup.md summarizing the results
@@ -51,9 +51,9 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-I started off with a model similar to model in previous assignment.Then started adding more convolutional layer. When the results weren't satisfactory I started venturing into experiments done already. Came across NVIDIA's published model. My model resembles a [NVIDIA E2E DL model architecture](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf). Solution takes care of optimizing the solution by pre-processing training data, configuring the params of network which yield better result for our images and adding layers. 
+I started off with a model similar to model in previous assignment.Then started adding more convolutional layer. When the results weren't satisfactory I started venturing into experiments done already. Then used NVIDIA's published model. My model resembles a [NVIDIA E2E DL model architecture](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf). Solution takes care of optimizing the solution by pre-processing training data, configuring the params of network which yield better result for our images and adding layers. 
 
-Model is defined in line 114 (train.py)
+Model is defined in line 114 (model.py)
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -63,7 +63,7 @@ Validation of data was done to ensure that the model wasn't overfitting.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (train.py line 102).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 102).
 
 #### 4. Appropriate training data
 
@@ -121,7 +121,7 @@ Final architecture resembles NVIDIAs E2E DL for Self Driving cars. This model he
 
 Final out put is steering angle.
 
-Model is in (train.py 114 - 146).
+Model is in (model.py 114 - 146).
 
 #### 3. Creation of the Training Set & Training Process
 
@@ -164,6 +164,6 @@ Epoch 50/50
 ```
 After this I ran the model with drive.py in autonomous mode in similator and this helped me in validating my model well.
 
-As next steps I would like to experiment with pretrained models and see how this helps me reducing the training time.
+As next steps I would like to experiment with pretrained models and see how this helps me reducing the training time. Ouput video is presented as output.mp4
 
 
